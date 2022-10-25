@@ -11,10 +11,16 @@
     <table>
         {% for item in items %}
             <tr>
-                <td>{{ item.name }}</td>
-                <td>{{ item.done }}</td>
+                {% if item.done %}
+                    <td><strike>{{ item.name }}</strike></td>
+                {% else %}
+                    <td>{{ item.done }}</td>
+                {% endif %}
             </tr>
+        {% empty %}
         {% endfor %}
+        
+        <tr><td>You have nothing to do</td></tr>
     </table>
 
 </body>
